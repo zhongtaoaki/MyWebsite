@@ -5,26 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <title>Document</title>
-    
+
 </head>
 
 <body>
 
-    name <input id="name"> <br>
-    password <input id="password"> <br>
-    <button id="mybutton1"> login </button><br>
-    <button id="mybutton2"> 这是另一个按钮 </button>
+
+    <table class="table table-light table-bordered w-50 m-auto">
+        <thead class="thead-light">
+            <tr>
+                <th>pet name</th>
+                <th>pet id</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
 
 </body>
 
 <script>
 
-    document.getElementById("mybutton1").addEventListener("click", function () {
-        var uName = document.getElementById("name").value;
-        var pswd = document.getElementById("password").value;
-        uName == "admin" && pswd == "admin" ? alert("登录成功！") : alert("wasted！");
-    })
+    $.get("https://petstore.swagger.io/v2/pet/findByStatus?status=available", function (pets) {
+
+        let content;
+        for (let index = 0; index < 10; index++) {
+            content += "<tr> <td>" + pets[index].name +"</td> <td>"+ pets[index].id +"</tr>";
+        }
+        $("#tbody").append(content);
+    }
+    );
 
 </script>
 
