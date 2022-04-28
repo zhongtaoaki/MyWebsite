@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+    
+</head>
+
+<body>
+
+    name <input id="name"> <br>
+    password <input id="password"> <br>
+    <button id="mybutton1"> login </button><br>
+    <button id="mybutton2"> 这是另一个按钮 </button>
+
+</body>
+
+<script>
+
+    document.getElementById("mybutton1").addEventListener("click", function () {
+        var uName = document.getElementById("name").value;
+        var pswd = document.getElementById("password").value;
+        uName == "admin" && pswd == "admin" ? alert("登录成功！") : alert("wasted！");
+    })
+
+</script>
+
+</html>
